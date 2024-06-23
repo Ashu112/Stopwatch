@@ -8,3 +8,25 @@
   justify-content: center;
   align-items: center;
 }
+
+.time-main {
+  font-family: Times New Roman;
+  font-size: larger;
+}
+
+.stopwatch-btn {
+  margin: 10px 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
+  background: rgba(15, 52, 83, 1);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: large;
+}

@@ -3,6 +3,7 @@ import "./StopWatch.css";
 
 const StopWatch = () => {
   const [time, setTime] = useState(0);
+  const [start, setStart] = useState(true);
   const sec = 0;
   return (
     <div className="stopwatch-container">
@@ -12,9 +13,13 @@ const StopWatch = () => {
         </div>
       </div>
       <div className="stopwatch-btn">
-        <button>Start</button>
-        <button>Stop</button>
-        <button>Reset</button>
+        {start ? (
+          <button className="btn">Start</button>
+        ) : (
+          <button className="btn">Stop</button>
+        )}
+
+        <button className="btn">Reset</button>
       </div>
     </div>
   );
