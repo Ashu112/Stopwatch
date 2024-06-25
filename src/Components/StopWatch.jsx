@@ -3,8 +3,11 @@ import "./StopWatch.css";
 
 const StopWatch = () => {
   const [time, setTime] = useState(0);
-  const [start, setStart] = useState(true);
+  const [start, setStart] = useState(false);
 
+  const hours = Math.floor(time / 360000);
+  const minutes = Math.floor((time % 360000) / 6000);
+  const seconds = Math.floor((time % 6000) / 100);
   const milliseconds = time % 100;
 
   useEffect(() => {
@@ -19,31 +22,27 @@ const StopWatch = () => {
     <div className="stopwatch-container">
       <div className="time-container">
         <div className="time-main">
-          {} : {milliseconds}
+          {hours}:{minutes}:{seconds}:{milliseconds}
         </div>
       </div>
       <div className="stopwatch-btn">
-        {start ? (
-          <button
-            className="btn"
-            onClick={() => {
-              setStart(false);
-            }}
-          >
-            Start
-          </button>
-        ) : (
-          <button
-            className="btn"
-            onClick={() => {
-              setStart(true);
-            }}
-          >
-            Stop
-          </button>
-        )}
+        <button
+          className="btn"
+          onClick={() => {
+            setStart(!start);
+          }}
+        >
+          {start ? "Stop" : "Start"}
+        </button>
 
-        <button className="btn">Reset</button>
+        <button
+          className="btn"
+          onClick={() => {
+            setTime(0);
+          }}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
